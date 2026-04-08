@@ -125,7 +125,7 @@ export default function Footer() {
 
           {/* Confidential consultation CTA */}
           <a
-            href="mailto:info@puregreenbioag.com"
+            href="mailto:info@jcrewenvironmental.com"
             className="group flex items-center gap-3 border border-white/15 rounded-sm px-4 py-3 hover:border-[#4a7c2f]/60 hover:bg-white/5 transition-all duration-200"
           >
             <svg className="w-3.5 h-3.5 shrink-0 text-[#4a7c2f] group-hover:text-[#9ecf62] transition-colors duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

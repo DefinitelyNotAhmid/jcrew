@@ -93,7 +93,7 @@ export default function FocusedExpertiseSection() {
             className="text-gray-600 text-[0.95rem] leading-[1.8] max-w-md"
             style={{ fontFamily: "var(--font-poppins)", fontWeight: 300 }}
           >
-            Each Pure Green division is purpose-built for a specific class of
+            Each JCrew Environmental division is purpose-built for a specific class of
             environmental risk — and every one operates within the same
             coordination, funding oversight, and delivery accountability
             structure.
