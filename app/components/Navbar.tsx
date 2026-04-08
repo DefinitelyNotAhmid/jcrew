@@ -92,8 +92,7 @@ export default function Navbar() {
             alt="JCrew Environmental Solution"
             width={40}
             height={40}
-            className={`transition-all duration-300 shrink-0 ${scrolled ? "w-8 h-8" : "w-10 h-10"}`}
-            style={{ width: "auto", height: "auto" }}
+            className={`transition-all duration-300 shrink-0 object-contain ${scrolled ? "w-8 h-8" : "w-10 h-10"}`}
           />
           <span
             className={`text-[#3d6b22] leading-tight transition-all duration-300 truncate max-w-[160px] sm:max-w-none ${scrolled ? "text-[0.78rem] sm:text-[0.85rem]" : "text-[0.82rem] sm:text-[0.95rem]"}`}
