@@ -3,11 +3,11 @@
 import Image from "next/image";
 
 const QUICK_LINKS = [
-  { label: "PFAS Response Division", href: "#" },
-  { label: "Drinking Water PFAS Response", href: "#" },
-  { label: "Clean Energy Division", href: "#" },
-  { label: "How We Work", href: "#" },
-  { label: "Funding & Accountability", href: "#" },
+  { label: "PFAS Response Division", href: "/pfas-drinking-water" },
+  { label: "Drinking Water PFAS Response", href: "/pfas-drinking-water" },
+  { label: "Clean Energy Division", href: "/clean-energy" },
+  { label: "How We Work", href: "/how-we-work" },
+  { label: "Funding & Accountability", href: "/funding-accountability" },
 ];
 
 const LEGAL = [
@@ -32,7 +32,7 @@ export default function Footer() {
         <div className="flex flex-col gap-7">
           {/* Logo mark + wordmark */}
           <div className="flex items-center gap-3">
-            <Image src="/image_6fd633e5.png" alt="JCrew Environmental Solution" width={36} height={36} className="shrink-0" />
+            <Image src="/image_6fd633e5.png" alt="JCrew Environmental Solution" width={36} height={36} className="shrink-0 w-9 h-9" style={{ width: "auto", height: "auto" }} />
             <div>
               <p
                 className="text-white text-[0.85rem] leading-tight"

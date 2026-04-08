@@ -10,6 +10,10 @@ export default function HowWeWorkPage() {
   const roleRef = useRef<HTMLDivElement>(null);
   const engageRef = useRef<HTMLDivElement>(null);
   const seqRef = useRef<HTMLDivElement>(null);
+  const intRef = useRef<HTMLDivElement>(null);
+  const fundRef = useRef<HTMLDivElement>(null);
+  const govRef = useRef<HTMLDivElement>(null);
+  const lteRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,10 +69,66 @@ export default function HowWeWorkPage() {
     );
     if (seqRef.current) seqObserver.observe(seqRef.current);
 
+    const intObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("hww-int-visible");
+            intObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.06 }
+    );
+    if (intRef.current) intObserver.observe(intRef.current);
+
+    const fundObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("hww-fund-visible");
+            fundObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.06 }
+    );
+    if (fundRef.current) fundObserver.observe(fundRef.current);
+
+    const govObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("hww-gov-visible");
+            govObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.06 }
+    );
+    if (govRef.current) govObserver.observe(govRef.current);
+
+    const lteObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("hww-lte-visible");
+            lteObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.06 }
+    );
+    if (lteRef.current) lteObserver.observe(lteRef.current);
+
     return () => {
       observer.disconnect();
       engageObserver.disconnect();
       seqObserver.disconnect();
+      intObserver.disconnect();
+      fundObserver.disconnect();
+      govObserver.disconnect();
+      lteObserver.disconnect();
     };
   }, []);
   return (
@@ -381,6 +441,8 @@ export default function HowWeWorkPage() {
 
       
 
+      
+
       {/* ═══════════════════════════════════════════
           ENGAGEMENT — How It Begins
       ═══════════════════════════════════════════ */}
@@ -535,7 +597,8 @@ export default function HowWeWorkPage() {
           </div>
 
           {/* ── RIGHT — image ── */}
-          <div className="hww-engage-image relative w-full overflow-hidden shadow-xl md:sticky md:top-28" style={{ minHeight: "580px" }}>
+          <div className="hww-engage-image w-full md:sticky md:top-28">
+            <div className="relative w-full overflow-hidden shadow-xl" style={{ minHeight: "580px" }}>
             <Image
               src="/freephotocc-iphone-1281456_1280cr.jpg"
               alt="Professional at desk reviewing program documentation for institutional engagement"
@@ -561,6 +624,7 @@ export default function HowWeWorkPage() {
               >
                 JCrew Environmental Solution
               </p>
+            </div>
             </div>
           </div>
 
@@ -714,7 +778,8 @@ export default function HowWeWorkPage() {
           </div>
 
           {/* RIGHT — image */}
-          <div className="hww-seq-image relative w-full overflow-hidden shadow-xl md:sticky md:top-28" style={{ minHeight: "600px" }}>
+          <div className="hww-seq-image w-full md:sticky md:top-28">
+            <div className="relative w-full overflow-hidden shadow-xl" style={{ minHeight: "600px" }}>
             <Image
               src="/pexels-towfiqu-barbhuiya-3440682-12052483cr-scaled-e1772040359326-1730x2048.jpg"
               alt="Project planning calendar and sequencing documentation"
@@ -741,6 +806,781 @@ export default function HowWeWorkPage() {
                 Program Governance · JCrew Environmental
               </p>
             </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          INTEGRATION — Additive, Not Disruptive
+      ═══════════════════════════════════════════ */}
+      <section className="bg-white py-24 px-5 md:px-6 overflow-hidden">
+        <div
+          ref={intRef}
+          className="max-w-7xl mx-auto flex flex-col gap-16"
+        >
+
+          {/* ── Section header ── */}
+          <div className="hww-int-header flex flex-col items-center text-center gap-4">
+            <p
+              className="text-[#4a7c2f] text-[0.56rem] uppercase tracking-[0.42em]"
+              style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+            >
+              Strategic Partnership Model
+            </p>
+            <h2
+              className="text-gray-900 text-[1.8rem] md:text-[2.3rem] leading-[1.1]"
+              style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+            >
+              Integrating With Your
+              <br />
+              Established Teams
+            </h2>
+            <p
+              className="text-[#4a7c2f] text-[0.72rem] uppercase tracking-[0.28em]"
+              style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600 }}
+            >
+              Additive. Not Disruptive.
+            </p>
+            <div className="h-px w-10 bg-[#4a7c2f]" />
+            <p
+              className="text-gray-500 text-[0.88rem] leading-[1.95] max-w-2xl"
+              style={{ fontFamily: "var(--font-poppins)", fontWeight: 300 }}
+            >
+              JCrew Environmental operates alongside your existing institutional talent — extending coordination capacity without displacing the engineering, legal, or regulatory expertise already in place.
+            </p>
+          </div>
+
+          {/* ── Split: stacked panels left, image right ── */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-start">
+
+            {/* LEFT — two stacked panels */}
+            <div className="hww-int-left flex flex-col gap-6">
+
+              {/* Panel 1 — Institutional assets */}
+              <div className="flex flex-col gap-0 border border-gray-100 overflow-hidden">
+                <div className="px-6 py-4 bg-[#fafafa] border-b border-gray-100">
+                  <p
+                    className="text-[0.54rem] uppercase tracking-[0.36em] text-gray-400"
+                    style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+                  >
+                    Your Institutional Assets
+                  </p>
+                </div>
+                {[
+                  {
+                    label: "Engineering Talent",
+                    body: "Licensed professionals with deep site and regulatory familiarity.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    label: "Legal Advisory",
+                    body: "Counsel governing procurement, compliance, and contractual obligations.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    label: "Operational Leads",
+                    body: "Internal decision-makers who carry authority over program direction.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    label: "Regulatory Oversight",
+                    body: "Agency relationships and compliance frameworks already established.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                    ),
+                  },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex gap-4 px-6 py-5 border-b border-gray-50 last:border-0 bg-white group hover:bg-[#fafafa] transition-colors duration-150"
+                  >
+                    <div className="shrink-0 mt-0.5 w-8 h-8 flex items-center justify-center bg-[#f0f0f0] text-gray-400 group-hover:bg-[#eef4e8] group-hover:text-[#4a7c2f] transition-colors duration-300">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <p className="text-gray-700 text-[0.78rem] mb-1 leading-snug" style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600 }}>{item.label}</p>
+                      <p className="text-gray-400 text-[0.71rem] leading-[1.7]" style={{ fontFamily: "var(--font-poppins)", fontWeight: 400 }}>{item.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Panel 2 — Our strategic function */}
+              <div className="hww-int-right flex flex-col gap-0 border border-[#4a7c2f]/20 overflow-hidden">
+                <div className="px-6 py-4 bg-[#f4f8f0] border-b border-[#4a7c2f]/15">
+                  <p
+                    className="text-[0.54rem] uppercase tracking-[0.36em] text-[#4a7c2f]"
+                    style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+                  >
+                    Our Strategic Function
+                  </p>
+                </div>
+                {[
+                  {
+                    label: "Cross-Functional Coordination",
+                    body: "Synchronizing engineers, legal counsel, regulators, and funders within a single accountable delivery framework.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <circle cx="12" cy="5" r="2" /><circle cx="5" cy="19" r="2" /><circle cx="19" cy="19" r="2" />
+                        <path d="M12 7v4m0 0l-5.5 6M12 11l5.5 6" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    label: "Role Clarity",
+                    body: "Formally defining the responsibilities of each participant to eliminate overlap, gaps, and unresolved accountability.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    label: "Timeline Synchronization",
+                    body: "Aligning funding cycles, regulatory milestones, and engineering phases into a unified program schedule — preventing workstream collision.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                        <path d="M16 2v4M8 2v4M3 10h18" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    label: "Momentum Management",
+                    body: "Maintaining forward program velocity through decision points, funding gaps, and stakeholder transitions that typically stall complex projects.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                      </svg>
+                    ),
+                  },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex gap-4 px-6 py-5 border-b border-[#4a7c2f]/8 last:border-0 bg-white group hover:bg-[#f4f8f0] transition-colors duration-150"
+                  >
+                    <div className="shrink-0 mt-0.5 w-8 h-8 flex items-center justify-center bg-[#eef4e8] text-[#4a7c2f] group-hover:bg-[#4a7c2f] group-hover:text-white transition-colors duration-300">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <p className="text-gray-800 text-[0.78rem] mb-1 leading-snug" style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600 }}>{item.label}</p>
+                      <p className="text-gray-400 text-[0.71rem] leading-[1.7]" style={{ fontFamily: "var(--font-poppins)", fontWeight: 400 }}>{item.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+
+            {/* RIGHT — image, sticky */}
+            <div className="hww-int-image w-full md:sticky md:top-28">
+            <div className="relative w-full overflow-hidden shadow-xl" style={{ minHeight: "620px" }}>
+              <Image
+                src="/pexels-cottonbro-5989931-2048x1365.jpg"
+                alt="Integrated team collaborating on complex program delivery"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ filter: "brightness(0.62) contrast(1.08) saturate(0.7)" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a1a06]/90 via-[#0a1a06]/30 to-transparent" />
+              <div className="absolute bottom-0 inset-x-0 px-7 py-6">
+                <div className="h-px w-8 bg-[#9ecf62]/50 mb-3" />
+                <p
+                  className="text-white text-[0.92rem] leading-[1.7] max-w-xs"
+                  style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+                >
+                  Additive coordination —
+                  <br />
+                  extending capacity without
+                  <br />
+                  displacing authority.
+                </p>
+                <p
+                  className="text-white/70 text-[0.62rem] uppercase tracking-[0.24em] mt-3"
+                  style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600 }}
+                >
+                  JCrew Environmental Solution
+                </p>
+              </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* ── Closing benefit ── */}
+          <div className="hww-int-closing flex flex-col items-center text-center gap-5 border-t border-gray-100 pt-12">
+            <div className="w-10 h-10 rounded-full border border-[#4a7c2f]/25 flex items-center justify-center">
+              <svg className="w-4 h-4 text-[#4a7c2f]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75" />
+              </svg>
+            </div>
+            <h3
+              className="text-gray-900 text-[1.3rem] md:text-[1.6rem] leading-[1.2]"
+              style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+            >
+              Your Internal Teams Remain in Control.
+              <br />
+              <span className="text-[#4a7c2f]">We Manage What They Shouldn&apos;t Have to.</span>
+            </h3>
+            <p
+              className="text-gray-400 text-[0.8rem] leading-[1.85] max-w-2xl"
+              style={{ fontFamily: "var(--font-poppins)", fontWeight: 300 }}
+            >
+              By absorbing cross-functional coordination, documentation management, and schedule governance, JCrew Environmental frees institutional leadership to concentrate on core policy, governance, and stakeholder oversight — where their authority is irreplaceable.
+            </p>
+          </div>
+
+        </div>
+      </section>
+      {/* ═══════════════════════════════════════════
+          FUNDING ALIGNMENT
+      ═══════════════════════════════════════════ */}
+      <section className="bg-[#0a1a06] py-24 px-5 md:px-6 overflow-hidden">
+        <div
+          ref={fundRef}
+          className="max-w-7xl mx-auto flex flex-col gap-14"
+        >
+
+          {/* Header */}
+          <div className="hww-fund-header flex flex-col items-center text-center gap-4">
+            <p
+              className="text-[#9ecf62] text-[0.56rem] uppercase tracking-[0.42em]"
+              style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+            >
+              Funding Coordination
+            </p>
+            <h2
+              className="text-white text-[1.8rem] md:text-[2.3rem] leading-[1.1]"
+              style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+            >
+              Funding Alignment
+            </h2>
+            <p
+              className="text-[#9ecf62] text-[0.72rem] uppercase tracking-[0.28em]"
+              style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600 }}
+            >
+              Integrated Into the Program. Not Sold Separately.
+            </p>
+            <div className="h-px w-10 bg-[#4a7229]" />
+            <p
+              className="text-gray-400 text-[0.88rem] leading-[1.95] max-w-2xl"
+              style={{ fontFamily: "var(--font-poppins)", fontWeight: 300 }}
+            >
+              Funding coordination is embedded within the program delivery structure — not offered as a standalone product or a conditional promise attached to engagement.
+            </p>
+          </div>
+
+          {/* Split: left copy, right image */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-start">
+
+            {/* LEFT */}
+            <div className="hww-fund-left flex flex-col gap-8">
+
+              {/* What we do */}
+              <div className="flex flex-col gap-0 border border-white/10 overflow-hidden">
+                <div className="px-6 py-4 bg-white/5 border-b border-white/8">
+                  <p
+                    className="text-[0.54rem] uppercase tracking-[0.36em] text-[#9ecf62]"
+                    style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+                  >
+                    What We Coordinate
+                  </p>
+                </div>
+                {[
+                  {
+                    label: "Identify Applicable Funding Pathways",
+                    body: "Evaluate grant programs, federal appropriations, and financing structures aligned with the program’s regulatory profile and timeline.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    label: "Align Documentation and Sequencing",
+                    body: "Ensure project documentation, site data, and compliance records are structured to satisfy the evidentiary requirements of each funding source.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    label: "Position Programs Before Deadlines",
+                    body: "Coordinate internal program readiness with external funding windows — ensuring applications are filed from a position of documented compliance, not reactive urgency.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><path d="M16 2v4M8 2v4M3 10h18" />
+                      </svg>
+                    ),
+                  },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex gap-4 px-6 py-5 border-b border-white/5 last:border-0 hover:bg-white/4 transition-colors duration-150 group"
+                  >
+                    <div className="shrink-0 mt-0.5 w-8 h-8 flex items-center justify-center bg-[#4a7229]/40 text-[#9ecf62] group-hover:bg-[#4a7229] transition-colors duration-300">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <p
+                        className="text-white text-[0.78rem] mb-1 leading-snug"
+                        style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600 }}
+                      >
+                        {item.label}
+                      </p>
+                      <p
+                        className="text-gray-500 text-[0.72rem] leading-[1.75] group-hover:text-gray-400 transition-colors duration-200"
+                        style={{ fontFamily: "var(--font-poppins)", fontWeight: 400 }}
+                      >
+                        {item.body}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+
+            {/* RIGHT — image */}
+            <div className="hww-fund-image w-full md:sticky md:top-28">
+            <div className="relative w-full overflow-hidden shadow-xl" style={{ minHeight: "480px" }}>
+              <Image
+                src="/pexels-freestockpro-12955678cr-2048x2048.jpg"
+                alt="Structured funding alignment and program documentation"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ filter: "brightness(0.65) contrast(1.08) saturate(0.72)" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a1a06]/90 via-[#0a1a06]/25 to-transparent" />
+              <div className="absolute bottom-0 inset-x-0 px-7 py-6">
+                <div className="h-px w-8 bg-[#9ecf62]/50 mb-3" />
+                <p
+                  className="text-white text-[0.88rem] leading-[1.7] max-w-xs"
+                  style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+                >
+                  Coordinate readiness.
+                  <br />
+                  Position programs correctly.
+                  <br />
+                  Not guarantee outcomes.
+                </p>
+                <p
+                  className="text-white/65 text-[0.6rem] uppercase tracking-[0.24em] mt-3"
+                  style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600 }}
+                >
+                  JCrew Environmental Solution
+                </p>
+              </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Operational Parameters note */}
+          <div className="hww-fund-note border border-[#D4AF37]/30 bg-[#0f2208] px-7 py-6 flex flex-col gap-4">
+            <div className="flex items-center gap-4">
+              <div className="flex-1 h-px bg-[#D4AF37]/20" />
+              <div className="flex items-center gap-2 shrink-0">
+                <svg className="w-3.5 h-3.5 text-[#D4AF37]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                </svg>
+                <p
+                  className="text-[#D4AF37] text-[0.52rem] uppercase tracking-[0.38em]"
+                  style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+                >
+                  Operational Parameters
+                </p>
+              </div>
+              <div className="flex-1 h-px bg-[#D4AF37]/20" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <p
+                className="text-gray-400 text-[0.78rem] leading-[1.85]"
+                style={{ fontFamily: "var(--font-poppins)", fontWeight: 300 }}
+              >
+                <span className="text-white" style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600, fontSize: "0.72rem" }}>Funding outcomes depend on eligibility, timing, and external approvals.</span>
+                {" "}Final determinations rest with the granting authority or lender — not with JCrew Environmental. Our function is to ensure the program and its documentation are positioned as competitively as possible within the applicable framework.
+              </p>
+              <p
+                className="text-gray-400 text-[0.78rem] leading-[1.85]"
+                style={{ fontFamily: "var(--font-poppins)", fontWeight: 300 }}
+              >
+                <span className="text-white" style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600, fontSize: "0.72rem" }}>Our role is to coordinate readiness — not to guarantee results.</span>
+                {" "}No representation is made that any specific funding pathway will be approved, awarded, or remain available at the time of application.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          GOVERNANCE & PROCUREMENT
+      ═══════════════════════════════════════════ */}
+      <section className="bg-[#f7f8f6] py-24 px-5 md:px-6 overflow-hidden">
+        <div
+          ref={govRef}
+          className="max-w-7xl mx-auto flex flex-col gap-14"
+        >
+
+          {/* Header */}
+          <div className="hww-gov-header flex flex-col items-center text-center gap-4">
+            <p
+              className="text-[#4a7c2f] text-[0.56rem] uppercase tracking-[0.42em]"
+              style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+            >
+              Structural Integrity Framework
+            </p>
+            <h2
+              className="text-gray-900 text-[1.8rem] md:text-[2.3rem] leading-[1.1]"
+              style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+            >
+              Governance
+              <span className="text-[#4a7c2f]"> &amp; </span>
+              Procurement
+            </h2>
+            <p
+              className="text-[#4a7c2f] text-[0.72rem] uppercase tracking-[0.28em]"
+              style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600 }}
+            >
+              Safe by Design.
+            </p>
+            <div className="h-px w-10 bg-[#4a7c2f]" />
+            <p
+              className="text-gray-500 text-[0.88rem] leading-[1.95] max-w-2xl"
+              style={{ fontFamily: "var(--font-poppins)", fontWeight: 300 }}
+            >
+              Our coordination model is structured from inception to satisfy procurement law, regulatory review, and institutional accountability standards — so governance is never retrofitted after commitment.
+            </p>
+          </div>
+
+          {/* Two-column panels */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            {/* LEFT — Built to be */}
+            <div className="hww-gov-left flex flex-col gap-0 border border-gray-100 overflow-hidden">
+              <div className="px-6 py-4 bg-[#fafafa] border-b border-gray-100">
+                <p
+                  className="text-[0.54rem] uppercase tracking-[0.36em] text-gray-400"
+                  style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+                >
+                  Our Coordination Model Is Built To Be
+                </p>
+              </div>
+              {[
+                {
+                  label: "Procurement-Safe",
+                  body: "Program structures comply with competitive procurement frameworks from inception — eliminating the legal exposure that arises when governance is added after commitment.",
+                  icon: (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                      <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: "Regulator-Friendly",
+                  body: "Documentation, decision records, and phase milestones are maintained in formats designed to satisfy regulatory review and audit requirements without supplemental preparation.",
+                  icon: (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                      <path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: "Politically Defensible",
+                  body: "Every coordination decision is documented with a clear rationale — providing institutional leadership and boards with a defensible record across administration changes and public scrutiny.",
+                  icon: (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                      <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z" />
+                    </svg>
+                  ),
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex gap-4 px-6 py-5 border-b border-gray-50 last:border-0 bg-white group hover:bg-[#fafafa] transition-colors duration-150"
+                >
+                  <div className="shrink-0 mt-0.5 w-8 h-8 flex items-center justify-center bg-[#f0f0f0] text-gray-400 group-hover:bg-[#eef4e8] group-hover:text-[#4a7c2f] transition-colors duration-300">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <p className="text-gray-700 text-[0.78rem] mb-1 leading-snug" style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600 }}>{item.label}</p>
+                    <p className="text-gray-400 text-[0.71rem] leading-[1.7]" style={{ fontFamily: "var(--font-poppins)", fontWeight: 400 }}>{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* RIGHT — Key principles */}
+            <div className="hww-gov-right flex flex-col gap-0 border border-[#4a7c2f]/20 overflow-hidden">
+              <div className="px-6 py-4 bg-[#f4f8f0] border-b border-[#4a7c2f]/15">
+                <p
+                  className="text-[0.54rem] uppercase tracking-[0.36em] text-[#4a7c2f]"
+                  style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+                >
+                  Key Principles
+                </p>
+              </div>
+              {[
+                {
+                  label: "Transparent Roles",
+                  body: "Every participant’s authority and responsibility is formally defined before program work begins — eliminating ambiguity that creates liability exposure.",
+                  icon: (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: "Documented Decision Paths",
+                  body: "Program decisions are recorded with the rationale, parties involved, and alternatives considered — creating an auditable governance trail from day one.",
+                  icon: (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                      <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: "Independent Vendors",
+                  body: "JCrew Environmental holds no equity position in any technology vendor or equipment supplier — ensuring every procurement recommendation is governed by program merit alone.",
+                  icon: (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                      <path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: "Clear Accountability",
+                  body: "Coordination responsibilities, escalation paths, and program-level authorities are documented so institutional leadership always knows who is responsible for what.",
+                  icon: (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                      <path d="M22 11.08V12a10 10 0 11-5.93-9.14" /><path d="M22 4L12 14.01l-3-3" />
+                    </svg>
+                  ),
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex gap-4 px-6 py-5 border-b border-[#4a7c2f]/8 last:border-0 bg-white group hover:bg-[#f4f8f0] transition-colors duration-150"
+                >
+                  <div className="shrink-0 mt-0.5 w-8 h-8 flex items-center justify-center bg-[#eef4e8] text-[#4a7c2f] group-hover:bg-[#4a7c2f] group-hover:text-white transition-colors duration-300">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <p className="text-gray-800 text-[0.78rem] mb-1 leading-snug" style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600 }}>{item.label}</p>
+                    <p className="text-gray-400 text-[0.71rem] leading-[1.7]" style={{ fontFamily: "var(--font-poppins)", fontWeight: 400 }}>{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+
+          {/* Closing statement */}
+          <div className="hww-gov-closing flex flex-col items-center text-center gap-5 border-t border-gray-200 pt-12">
+            <div className="w-10 h-10 rounded-full border border-[#4a7c2f]/25 flex items-center justify-center">
+              <svg className="w-4 h-4 text-[#4a7c2f]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <h3
+              className="text-gray-900 text-[1.2rem] md:text-[1.5rem] leading-[1.25] max-w-3xl"
+              style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+            >
+              This structure protects institutions, leadership, and boards
+              <br />
+              <span className="text-[#4a7c2f]">throughout multi-year programs.</span>
+            </h3>
+            <p
+              className="text-gray-400 text-[0.8rem] leading-[1.85] max-w-2xl"
+              style={{ fontFamily: "var(--font-poppins)", fontWeight: 300 }}
+            >
+              Governance built into the program from day one is the single most effective protection against procurement challenges, regulatory findings, and institutional liability over the full program lifecycle.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          LONG-TERM ENGAGEMENT
+      ═══════════════════════════════════════════ */}
+      <section className="bg-[#0a1a06] py-24 px-5 md:px-6 overflow-hidden">
+        <div
+          ref={lteRef}
+          className="max-w-7xl mx-auto flex flex-col gap-14"
+        >
+
+          {/* Header */}
+          <div className="hww-lte-header flex flex-col items-center text-center gap-4">
+            <p
+              className="text-[#9ecf62] text-[0.56rem] uppercase tracking-[0.42em]"
+              style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+            >
+              Program Lifecycle Commitment
+            </p>
+            <h2
+              className="text-white text-[1.8rem] md:text-[2.3rem] leading-[1.1]"
+              style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+            >
+              Long-Term Engagement
+            </h2>
+            <p
+              className="text-[#9ecf62] text-[0.72rem] uppercase tracking-[0.28em]"
+              style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600 }}
+            >
+              From First Step to Final Compliance.
+            </p>
+            <div className="h-px w-10 bg-[#4a7229]" />
+            <p
+              className="text-gray-400 text-[0.88rem] leading-[1.95] max-w-2xl"
+              style={{ fontFamily: "var(--font-poppins)", fontWeight: 300 }}
+            >
+              JCrew Environmental remains engaged across the full lifecycle of environmental programs. Where others are retained for a single phase, our coordination function spans planning, delivery, and long-term compliance.
+            </p>
+          </div>
+
+          {/* Split: left copy, right image */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-start">
+
+            {/* LEFT */}
+            <div className="hww-lte-left flex flex-col gap-8">
+              <div className="flex flex-col gap-0 border border-white/10 overflow-hidden">
+                <div className="px-6 py-4 bg-white/5 border-b border-white/8">
+                  <p
+                    className="text-[0.54rem] uppercase tracking-[0.36em] text-[#9ecf62]"
+                    style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+                  >
+                    Where We Remain
+                  </p>
+                </div>
+                {[
+                  {
+                    label: "Stay Through Planning",
+                    body: "Present from the earliest program scoping and stakeholder alignment phase — before any workstreams are committed or procurement is initiated.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    label: "Remain Through Delivery",
+                    body: "Sustain cross-functional coordination across engineering, legal, regulatory, and funding workstreams through the full active delivery period.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    label: "Support Long-Term Compliance and Continuity",
+                    body: "Maintain program documentation, reporting obligations, and institutional continuity records through post-completion compliance periods — protecting the program record over time.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                    ),
+                  },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex gap-4 px-6 py-5 border-b border-white/5 last:border-0 hover:bg-white/4 transition-colors duration-150 group"
+                  >
+                    <div className="shrink-0 mt-0.5 w-8 h-8 flex items-center justify-center bg-[#4a7229]/40 text-[#9ecf62] group-hover:bg-[#4a7229] transition-colors duration-300">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <p
+                        className="text-white text-[0.78rem] mb-1 leading-snug"
+                        style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600 }}
+                      >
+                        {item.label}
+                      </p>
+                      <p
+                        className="text-gray-500 text-[0.72rem] leading-[1.75] group-hover:text-gray-400 transition-colors duration-200"
+                        style={{ fontFamily: "var(--font-poppins)", fontWeight: 400 }}
+                      >
+                        {item.body}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Closing statement */}
+              <div className="hww-lte-closing border-l-2 border-[#4a7229] pl-5">
+                <p
+                  className="text-white text-[0.88rem] leading-[1.75]"
+                  style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600 }}
+                >
+                  This continuity is what prevents fragmentation
+                  and failure over time.
+                </p>
+                <p
+                  className="text-gray-500 text-[0.76rem] leading-[1.8] mt-2"
+                  style={{ fontFamily: "var(--font-poppins)", fontWeight: 300 }}
+                >
+                  Institutional programs that outlast any single administration require a coordination partner with an equally long horizon — not a vendor whose engagement ends at project handoff.
+                </p>
+              </div>
+            </div>
+
+            {/* RIGHT — image */}
+            <div className="hww-lte-image w-full md:sticky md:top-28">
+            <div className="relative w-full overflow-hidden shadow-xl" style={{ minHeight: "500px" }}>
+              <Image
+                src="/ChatGPT-Image-Feb-3-2026-07_52_05-PM.png"
+                alt="Long-term compliance and program continuity"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ filter: "brightness(0.82) contrast(1.05) saturate(0.75)" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a1a06]/88 via-[#0a1a06]/20 to-transparent" />
+              <div className="absolute bottom-0 inset-x-0 px-7 py-6">
+                <div className="h-px w-8 bg-[#9ecf62]/50 mb-3" />
+                <p
+                  className="text-white text-[0.88rem] leading-[1.7] max-w-xs"
+                  style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+                >
+                  Present at planning.
+                  <br />
+                  Present at delivery.
+                  <br />
+                  Present at compliance.
+                </p>
+                <p
+                  className="text-white/65 text-[0.6rem] uppercase tracking-[0.24em] mt-3"
+                  style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600 }}
+                >
+                  JCrew Environmental Solution
+                </p>
+              </div>
+              </div>
+            </div>
+
           </div>
 
         </div>

@@ -704,3 +704,334 @@ body {
   opacity: 1;
   transform: translate(0, 0);
 }
+
+/* ── How We Work — integration section ── */
+.hww-int-header {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hww-int-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.hww-int-right {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.hww-int-closing {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.35s,
+              transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.35s;
+}
+
+.hww-int-image {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.hww-int-visible .hww-int-header,
+.hww-int-visible .hww-int-left,
+.hww-int-visible .hww-int-right,
+.hww-int-visible .hww-int-image,
+.hww-int-visible .hww-int-closing {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── How We Work — funding alignment ── */
+.hww-fund-header {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hww-fund-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.hww-fund-image {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.hww-fund-note {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s,
+              transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+
+.hww-fund-visible .hww-fund-header,
+.hww-fund-visible .hww-fund-left,
+.hww-fund-visible .hww-fund-image,
+.hww-fund-visible .hww-fund-note {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── How We Work — governance & procurement ── */
+.hww-gov-header {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hww-gov-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.hww-gov-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.hww-gov-closing {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s,
+              transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+
+.hww-gov-visible .hww-gov-header,
+.hww-gov-visible .hww-gov-left,
+.hww-gov-visible .hww-gov-right,
+.hww-gov-visible .hww-gov-closing {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── How We Work — long-term engagement ── */
+.hww-lte-header {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hww-lte-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.hww-lte-image {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.hww-lte-closing {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s,
+              transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+
+.hww-lte-visible .hww-lte-header,
+.hww-lte-visible .hww-lte-left,
+.hww-lte-visible .hww-lte-image,
+.hww-lte-visible .hww-lte-closing {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── Funding & Accountability — hero entrance ── */
+.fa-hero-eyebrow,
+.fa-hero-headline,
+.fa-hero-divider,
+.fa-hero-sub,
+.fa-hero-cta,
+.fa-hero-scroll {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fa-hero-visible .fa-hero-eyebrow  { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+.fa-hero-visible .fa-hero-headline { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
+.fa-hero-visible .fa-hero-divider  { opacity: 1; transform: translateY(0); transition-delay: 0.42s; }
+.fa-hero-visible .fa-hero-sub      { opacity: 1; transform: translateY(0); transition-delay: 0.55s; }
+.fa-hero-visible .fa-hero-cta      { opacity: 1; transform: translateY(0); transition-delay: 0.7s; }
+.fa-hero-visible .fa-hero-scroll   { opacity: 1; transform: translateY(0); transition-delay: 0.9s; }
+
+/* ── Funding — section 1 (structured programs) ── */
+.fa-s1-header {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.fa-s1-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+.fa-s1-image {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+.fa-s1-visible .fa-s1-header,
+.fa-s1-visible .fa-s1-left,
+.fa-s1-visible .fa-s1-image {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── Funding — section 2 (coordination failure) ── */
+.fa-s2-header {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.fa-s2-image {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+.fa-s2-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+.fa-s2-visible .fa-s2-header,
+.fa-s2-visible .fa-s2-image,
+.fa-s2-visible .fa-s2-right {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── Funding — section 3 (integrated coordination + deadline card) ── */
+.fa-s3-header {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.fa-s3-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+.fa-s3-card {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s,
+              transform 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s;
+}
+.fa-s3-visible .fa-s3-header,
+.fa-s3-visible .fa-s3-left,
+.fa-s3-visible .fa-s3-card {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── Funding — section 4 (accountability by design) ── */
+.fa-s4-header {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.fa-s4-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+.fa-s4-image {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+.fa-s4-visible .fa-s4-header,
+.fa-s4-visible .fa-s4-left,
+.fa-s4-visible .fa-s4-image {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── Funding — section 5 (applicable across divisions) ── */
+.fa-s5-header {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.fa-s5-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+.fa-s5-image {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+.fa-s5-closing {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s,
+              transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+.fa-s5-visible .fa-s5-header,
+.fa-s5-visible .fa-s5-left,
+.fa-s5-visible .fa-s5-image,
+.fa-s5-visible .fa-s5-closing {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── Contact page — hero entrance ── */
+.contact-hero-eyebrow,
+.contact-hero-headline,
+.contact-hero-sub,
+.contact-hero-cta,
+.contact-hero-trust {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.contact-hero-visible .contact-hero-eyebrow  { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+.contact-hero-visible .contact-hero-headline { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
+.contact-hero-visible .contact-hero-sub      { opacity: 1; transform: translateY(0); transition-delay: 0.42s; }
+.contact-hero-visible .contact-hero-cta      { opacity: 1; transform: translateY(0); transition-delay: 0.58s; }
+.contact-hero-visible .contact-hero-trust    { opacity: 1; transform: translateY(0); transition-delay: 0.72s; }

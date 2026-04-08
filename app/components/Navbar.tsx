@@ -15,6 +15,39 @@ export default function Navbar() {
   const [pfasOpen, setPfasOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [lang, setLang] = useState<"EN" | "ES">("EN");
+
+  useEffect(() => {
+    // Detect if we are currently on the Google Translate proxy
+    if (window.location.hostname.includes("translate.goog") ||
+        window.location.hostname.includes("translate.googleusercontent")) {
+      setLang("ES");
+    }
+  }, []);
+
+  function handleLang(selected: "EN" | "ES") {
+    if (selected === lang) return;
+    setLang(selected);
+    if (selected === "ES") {
+      const url = encodeURIComponent(window.location.href);
+      window.location.href = `https://translate.google.com/translate?hl=es&sl=en&tl=es&u=${url}`;
+    } else {
+      // Extract the original URL from the Google Translate proxy URL
+      const params = new URLSearchParams(window.location.search);
+      const original = params.get("u");
+      if (original) {
+        window.location.href = decodeURIComponent(original);
+      } else {
+        // Fallback: strip translate.goog wrapper by going to the original host
+        const match = window.location.hostname.match(/^(.+?)\.translate\.goog$/);
+        if (match) {
+          const originalHost = match[1].replace(/-/g, ".");
+          window.location.href = window.location.protocol + "//" + originalHost + window.location.pathname;
+        } else {
+          window.history.back();
+        }
+      }
+    }
+  }
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLLIElement>(null);
 
@@ -57,9 +90,10 @@ export default function Navbar() {
           <Image
             src="/logo.png"
             alt="JCrew Environmental Solution"
-            width={scrolled ? 32 : 40}
-            height={scrolled ? 32 : 40}
-            className="transition-all duration-300 shrink-0"
+            width={40}
+            height={40}
+            className={`transition-all duration-300 shrink-0 ${scrolled ? "w-8 h-8" : "w-10 h-10"}`}
+            style={{ width: "auto", height: "auto" }}
           />
           <span
             className={`text-[#3d6b22] leading-tight transition-all duration-300 truncate max-w-[160px] sm:max-w-none ${scrolled ? "text-[0.78rem] sm:text-[0.85rem]" : "text-[0.82rem] sm:text-[0.95rem]"}`}
@@ -162,7 +196,7 @@ export default function Navbar() {
           {/* Funding & Accountability */}
           <li>
             <a
-              href="#"
+              href="/funding-accountability"
               className="relative text-[0.8125rem] text-gray-600 hover:text-[#3d6b22] transition-colors duration-200 after:absolute after:bottom-[-3px] after:left-0 after:h-px after:w-0 after:bg-[#4a7c2f] hover:after:w-full after:transition-all after:duration-300"
             >
               Funding &amp; Accountability
@@ -175,7 +209,7 @@ export default function Navbar() {
 
           {/* CTA desktop */}
           <a
-            href="#"
+            href="/contact"
             className="hidden md:inline-flex items-center justify-center px-5 py-2.5 bg-[#4a7c2f] text-white text-[0.72rem] uppercase tracking-[0.12em] border-l-2 border-transparent hover:bg-[#3d6b22] hover:border-l-2 hover:border-[#2d5a1b] transition-all duration-200"
             style={{ fontFamily: "var(--font-poppins)", fontWeight: 600 }}
           >
@@ -193,8 +227,8 @@ export default function Navbar() {
               className="absolute top-0.5 bottom-0.5 w-[calc(50%-2px)] rounded-full bg-[#f5c518] shadow-sm transition-transform duration-250"
               style={{ transform: lang === "EN" ? "translateX(2px)" : "translateX(calc(100% + 2px))" }}
             />
-            <button onClick={() => setLang("EN")} aria-pressed={lang === "EN"} className={`relative z-10 px-3.5 py-1 text-[0.7rem] rounded-full transition-colors duration-150 ${lang === "EN" ? "text-[#3a2d00]" : "text-gray-400 hover:text-gray-600"}`}>EN</button>
-            <button onClick={() => setLang("ES")} aria-pressed={lang === "ES"} className={`relative z-10 px-3.5 py-1 text-[0.7rem] rounded-full transition-colors duration-150 ${lang === "ES" ? "text-[#3a2d00]" : "text-gray-400 hover:text-gray-600"}`}>ES</button>
+            <button onClick={() => handleLang("EN")} aria-pressed={lang === "EN"} className={`relative z-10 px-3.5 py-1 text-[0.7rem] rounded-full transition-colors duration-150 ${lang === "EN" ? "text-[#3a2d00]" : "text-gray-400 hover:text-gray-600"}`}>EN</button>
+            <button onClick={() => handleLang("ES")} aria-pressed={lang === "ES"} className={`relative z-10 px-3.5 py-1 text-[0.7rem] rounded-full transition-colors duration-150 ${lang === "ES" ? "text-[#3a2d00]" : "text-gray-400 hover:text-gray-600"}`}>ES</button>
           </div>
 
           {/* Hamburger — mobile only */}
@@ -253,13 +287,13 @@ export default function Navbar() {
               </a>
             </li>
             <li>
-              <a href="#" onClick={closeMobile} className="flex items-center px-6 py-4 text-[0.88rem] text-gray-700 hover:text-[#3d6b22] hover:bg-[#f7f8f6] transition-colors duration-150">
+              <a href="/funding-accountability" onClick={closeMobile} className="flex items-center px-6 py-4 text-[0.88rem] text-gray-700 hover:text-[#3d6b22] hover:bg-[#f7f8f6] transition-colors duration-150">
                 Funding &amp; Accountability
               </a>
             </li>
             <li className="p-4 flex flex-col gap-3">
               <a
-                href="#"
+                href="/contact"
                 onClick={closeMobile}
                 className="flex items-center justify-center w-full py-3 bg-[#4a7c2f] text-white text-[0.72rem] uppercase tracking-[0.12em] hover:bg-[#3d6b22] transition-colors duration-200"
                 style={{ fontFamily: "var(--font-poppins)", fontWeight: 600 }}
@@ -277,8 +311,8 @@ export default function Navbar() {
                     className="absolute top-0.5 bottom-0.5 w-[calc(50%-2px)] rounded-full bg-[#f5c518] shadow-sm transition-transform duration-250"
                     style={{ transform: lang === "EN" ? "translateX(2px)" : "translateX(calc(100% + 2px))" }}
                   />
-                  <button onClick={() => setLang("EN")} aria-pressed={lang === "EN"} className={`relative z-10 px-4 py-1 text-[0.7rem] rounded-full transition-colors duration-150 ${lang === "EN" ? "text-[#3a2d00]" : "text-gray-400"}`}>EN</button>
-                  <button onClick={() => setLang("ES")} aria-pressed={lang === "ES"} className={`relative z-10 px-4 py-1 text-[0.7rem] rounded-full transition-colors duration-150 ${lang === "ES" ? "text-[#3a2d00]" : "text-gray-400"}`}>ES</button>
+                  <button onClick={() => handleLang("EN")} aria-pressed={lang === "EN"} className={`relative z-10 px-4 py-1 text-[0.7rem] rounded-full transition-colors duration-150 ${lang === "EN" ? "text-[#3a2d00]" : "text-gray-400"}`}>EN</button>
+                  <button onClick={() => handleLang("ES")} aria-pressed={lang === "ES"} className={`relative z-10 px-4 py-1 text-[0.7rem] rounded-full transition-colors duration-150 ${lang === "ES" ? "text-[#3a2d00]" : "text-gray-400"}`}>ES</button>
                 </div>
               </div>
             </li>
