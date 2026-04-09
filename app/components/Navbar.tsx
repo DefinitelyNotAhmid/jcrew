@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import Image from "next/image";
 
 const PFAS_ITEMS = [
   {
@@ -86,14 +85,7 @@ export default function Navbar() {
       <div className={`max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between transition-all duration-300 ${scrolled ? "h-14" : "h-16 md:h-20"}`}>
 
         {/* ── Logo ── */}
-        <a href="/" className="flex items-center gap-3 shrink-0">
-          <Image
-            src="/logo.png"
-            alt="JCrew Environmental Solution"
-            width={40}
-            height={40}
-            className={`transition-all duration-300 shrink-0 object-contain ${scrolled ? "w-8 h-8" : "w-10 h-10"}`}
-          />
+        <a href="/" className="flex items-center shrink-0">
           <span
             className={`text-[#3d6b22] leading-tight transition-all duration-300 truncate max-w-[160px] sm:max-w-none ${scrolled ? "text-[0.78rem] sm:text-[0.85rem]" : "text-[0.82rem] sm:text-[0.95rem]"}`}
             style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600 }}

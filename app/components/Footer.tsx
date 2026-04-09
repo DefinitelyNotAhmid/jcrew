@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 const QUICK_LINKS = [
   { label: "PFAS Response Division", href: "/pfas-drinking-water" },
   { label: "Drinking Water PFAS Response", href: "/pfas-drinking-water" },
@@ -30,23 +28,20 @@ export default function Footer() {
 
         {/* Col 1 — Brand ── */}
         <div className="flex flex-col gap-7">
-          {/* Logo mark + wordmark */}
-          <div className="flex items-center gap-3">
-            <Image src="/image_6fd633e5.png" alt="JCrew Environmental Solution" width={36} height={36} className="shrink-0 w-9 h-9" style={{ width: "auto", height: "auto" }} />
-            <div>
-              <p
-                className="text-white text-[0.85rem] leading-tight"
-                style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
-              >
-                JCrew Environmental Solution
-              </p>
-              <p
-                className="text-[#9ecf62] text-[0.55rem] uppercase tracking-[0.22em] mt-0.5"
-                style={{ fontFamily: "var(--font-poppins)", fontWeight: 500 }}
-              >
-                Environmental Program Coordination
-              </p>
-            </div>
+          {/* Wordmark */}
+          <div>
+            <p
+              className="text-white text-[0.85rem] leading-tight"
+              style={{ fontFamily: "var(--font-cinzel)", fontWeight: 700 }}
+            >
+              JCrew Environmental Solution
+            </p>
+            <p
+              className="text-[#9ecf62] text-[0.55rem] uppercase tracking-[0.22em] mt-0.5"
+              style={{ fontFamily: "var(--font-poppins)", fontWeight: 500 }}
+            >
+              Environmental Program Coordination
+            </p>
           </div>
 
           {/* Tagline */}
